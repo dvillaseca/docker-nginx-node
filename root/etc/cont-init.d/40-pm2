@@ -1,0 +1,3 @@
+#!/usr/bin/with-contenv bash
+
+exec /usr/local/bin/pm2 start /config/apps/process.json
