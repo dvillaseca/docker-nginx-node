@@ -19,7 +19,8 @@ RUN \
     harfbuzz \
     ca-certificates \
     ttf-freefont \
-    dumb-init && \
+    dumb-init \
+	ffmpeg && \
  echo "**** configure nginx ****" && \
  echo 'fastcgi_param  SCRIPT_FILENAME $document_root$fastcgi_script_name;' >> \
 	/etc/nginx/fastcgi_params && \
