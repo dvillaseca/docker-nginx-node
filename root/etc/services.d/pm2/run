@@ -1,0 +1,3 @@
+#!/usr/bin/with-contenv bash
+echo "starting pm2"
+exec /usr/local/bin/pm2 start /config/apps/process.json --no-daemon
