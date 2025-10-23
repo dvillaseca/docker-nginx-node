@@ -20,7 +20,16 @@ RUN \
     ca-certificates \
     ttf-freefont \
     dumb-init \
-	ffmpeg && \
+	ffmpeg \
+	build-base \
+	cairo-dev \
+	jpeg-dev \
+	pango-dev \
+	giflib-dev \
+	pixman-dev \
+	python3 \
+	vips-dev \
+	pkgconfig && \
  echo "**** configure nginx ****" && \
  echo 'fastcgi_param  SCRIPT_FILENAME $document_root$fastcgi_script_name;' >> \
 	/etc/nginx/fastcgi_params && \
