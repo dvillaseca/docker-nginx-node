@@ -29,7 +29,8 @@ RUN \
 	pixman-dev \
 	python3 \
 	vips-dev \
-	pkgconfig && \
+	pkgconfig \
+	cups && \
  echo "**** configure nginx ****" && \
  echo 'fastcgi_param  SCRIPT_FILENAME $document_root$fastcgi_script_name;' >> \
 	/etc/nginx/fastcgi_params && \
