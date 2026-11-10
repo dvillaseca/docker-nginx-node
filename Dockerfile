@@ -1,4 +1,13 @@
-FROM ghcr.io/linuxserver/baseimage-alpine:3.22
+FROM node:24-alpine AS node
+
+FROM ghcr.io/linuxserver/baseimage-alpine:3.24
+
+# Node 24 from the official image (newer than the Alpine nodejs package)
+COPY --from=node /usr/local/bin/node /usr/local/bin/node
+COPY --from=node /usr/local/lib/node_modules /usr/local/lib/node_modules
+RUN \
+ ln -s /usr/local/lib/node_modules/npm/bin/npm-cli.js /usr/local/bin/npm && \
+ ln -s /usr/local/lib/node_modules/npm/bin/npx-cli.js /usr/local/bin/npx
 
 # install packages
 RUN \
@@ -10,8 +19,6 @@ RUN \
 	nano \
 	nginx \
 	openssl \
-	nodejs \
-	npm \
 	certbot \
 	chromium \
 	nss \
